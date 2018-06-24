@@ -34,10 +34,12 @@ export class HomePage {
   login() {
     this.authService.authenticate(this.credentialsDTO)
       .subscribe(
-        response => { console.log(response.headers.get("Authorization")); },
+        response => { 
+          this.authService.successfulLogin(response.headers.get("Authorization")); 
+          this.navCtrl.setRoot('CategoriesPage');
+        },
         error => {}
       );
-    this.navCtrl.setRoot('CategoriesPage');
   }
 
 }
