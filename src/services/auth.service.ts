@@ -27,6 +27,17 @@ export class AuthService {
         );
     }
 
+    refreshToken() {
+        return this.httpClient.post(
+            `${API_CONFIG.baseUrl}/auth/refresh_token`,
+            {},
+            {
+                observe: 'response',
+                responseType: 'text'
+            }
+        );
+    }
+
     successfulLogin(authHeader: string) {
         let tkn = authHeader.substring(7); // Remove "Bearer " from the header
         let user : LocalUser = {
