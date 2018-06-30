@@ -12,10 +12,14 @@
       <ion-label stacked>Name*</ion-label>
       <ion-input formControlName="name" type="text"></ion-input>
     </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.name.dirty && formGroup.controls.name.errors" margin-left>Invalid value</p>
+
     <ion-item>
       <ion-label stacked>Email*</ion-label>
       <ion-input formControlName="email" type="text"></ion-input>
     </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.email.dirty && formGroup.controls.email.errors" margin-left>Invalid value</p>
+
     <ion-list radio-group formControlName="customerType">
       <ion-list-header>
         Customer Type
@@ -29,47 +33,64 @@
         <ion-radio value="2"></ion-radio>
       </ion-item>
     </ion-list>
+    <p class="danger" *ngIf="formGroup.controls.customerType.dirty && formGroup.controls.customerType.errors" margin-left>Invalid value</p>
 
     <ion-item>
       <ion-label stacked>ID / CN</ion-label>
       <ion-input formControlName="documentNumber" type="text"></ion-input>
     </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.documentNumber.dirty && formGroup.controls.documentNumber.errors" margin-left>Invalid value</p>
+
     <ion-item>
       <ion-label stacked>Password*</ion-label>
       <ion-input formControlName="password" type="password"></ion-input>
     </ion-item> 
+    <p class="danger" *ngIf="formGroup.controls.password.dirty && formGroup.controls.password.errors" margin-left>Invalid value</p>
+
     <ion-item>
       <ion-label stacked>Street*</ion-label>
       <ion-input formControlName="street" type="text"></ion-input>
     </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.street.dirty && formGroup.controls.street.errors" margin-left>Invalid value</p>
+
     <ion-item>
       <ion-label stacked>Number*</ion-label>
       <ion-input formControlName="number" type="text"></ion-input>
     </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.number.dirty && formGroup.controls.number.errors" margin-left>Invalid value</p>
+
     <ion-item>
       <ion-label stacked>Complement</ion-label>
       <ion-input formControlName="complement" type="text"></ion-input>
     </ion-item>
+
     <ion-item>
       <ion-label stacked>District</ion-label>
       <ion-input formControlName="district" type="text"></ion-input>
     </ion-item>
+
     <ion-item>
       <ion-label stacked>Zip Code*</ion-label>
       <ion-input formControlName="zipCode" type="text"></ion-input>
     </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.zipCode.dirty && formGroup.controls.zipCode.errors" margin-left>Invalid value</p>
+
     <ion-item>
       <ion-label stacked>Phone number 1*</ion-label>
       <ion-input formControlName="phoneNumber1" type="text"></ion-input>
     </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.phoneNumber1.dirty && formGroup.controls.phoneNumber1.errors" margin-left>Invalid value</p>
+
     <ion-item>
       <ion-label stacked>Phone number 2</ion-label>
       <ion-input formControlName="phoneNumber2" type="text"></ion-input>
     </ion-item>
+
     <ion-item>
       <ion-label stacked>Phone number 3</ion-label>
       <ion-input formControlName="phoneNumber3" type="text"></ion-input>
     </ion-item>
+
     <ion-item>
       <ion-label stacked>State*</ion-label>
       <ion-select formControlName="stateId" (ionChange)="updateCities()">
@@ -81,6 +102,8 @@
         </ion-option>
       </ion-select>
     </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.stateId.dirty && formGroup.controls.stateId.errors" margin-left>Invalid value</p>
+
     <ion-item>
       <ion-label stacked>City*</ion-label>
       <ion-select formControlName="cityId">
@@ -91,6 +114,8 @@
         </ion-option>
       </ion-select>
     </ion-item>
-    <button ion-button block type="submit">Sign Up</button>
+    <p class="danger" *ngIf="formGroup.controls.cityId.dirty && formGroup.controls.cityId.errors" margin-left>Invalid value</p>
+
+    <button ion-button block type="submit" [disabled]="formGroup.invalid">Sign Up</button>
   </form>
 </ion-content>
