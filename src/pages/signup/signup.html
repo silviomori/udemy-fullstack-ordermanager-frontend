@@ -7,7 +7,9 @@
 </ion-header>
 
 <ion-content padding>
+
   <form [formGroup]="formGroup" (ngSubmit)="signupUser(); $event.preventDefault()">
+  
     <ion-item>
       <ion-label stacked>Name*</ion-label>
       <ion-input formControlName="name" type="text"></ion-input>
@@ -47,50 +49,60 @@
     </ion-item> 
     <p class="danger" *ngIf="formGroup.controls.password.dirty && formGroup.controls.password.errors" margin-left>Invalid value</p>
 
-    <ion-item>
-      <ion-label stacked>Street*</ion-label>
-      <ion-input formControlName="street" type="text"></ion-input>
-    </ion-item>
-    <p class="danger" *ngIf="formGroup.controls.street.dirty && formGroup.controls.street.errors" margin-left>Invalid value</p>
+    <div class="panel-body" formArray="addresses">
+      <div class="panel-body" [formGroup]="address">
 
-    <ion-item>
-      <ion-label stacked>Number*</ion-label>
-      <ion-input formControlName="number" type="text"></ion-input>
-    </ion-item>
-    <p class="danger" *ngIf="formGroup.controls.number.dirty && formGroup.controls.number.errors" margin-left>Invalid value</p>
+        <ion-item>
+          <ion-label stacked>Street*</ion-label>
+          <ion-input formControlName="street" type="text"></ion-input>
+        </ion-item>
+        <p class="danger" *ngIf="address.controls.street.dirty && address.controls.street.errors" margin-left>Invalid value</p>
+  
+        <ion-item>
+          <ion-label stacked>Number*</ion-label>
+          <ion-input formControlName="number" type="text"></ion-input>
+        </ion-item>
+        <p class="danger" *ngIf="address.controls.number.dirty && address.controls.number.errors" margin-left>Invalid value</p>
+    
+        <ion-item>
+          <ion-label stacked>Complement</ion-label>
+          <ion-input formControlName="complement" type="text"></ion-input>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label stacked>District</ion-label>
+          <ion-input formControlName="district" type="text"></ion-input>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label stacked>Zip Code*</ion-label>
+          <ion-input formControlName="zipCode" type="text"></ion-input>
+        </ion-item>
+        <p class="danger" *ngIf="address.controls.zipCode.dirty && address.controls.zipCode.errors" margin-left>Invalid value</p>
 
-    <ion-item>
-      <ion-label stacked>Complement</ion-label>
-      <ion-input formControlName="complement" type="text"></ion-input>
-    </ion-item>
+      </div>
+    </div>
 
-    <ion-item>
-      <ion-label stacked>District</ion-label>
-      <ion-input formControlName="district" type="text"></ion-input>
-    </ion-item>
+    <div class="panel-body" formGroupName="phoneNumbers">
 
-    <ion-item>
-      <ion-label stacked>Zip Code*</ion-label>
-      <ion-input formControlName="zipCode" type="text"></ion-input>
-    </ion-item>
-    <p class="danger" *ngIf="formGroup.controls.zipCode.dirty && formGroup.controls.zipCode.errors" margin-left>Invalid value</p>
+      <ion-item>
+        <ion-label stacked>Phone number 1*</ion-label>
+        <ion-input [formControlName]="0" type="text"></ion-input>
+      </ion-item>
+      <p class="danger" *ngIf="phoneNumbers.at(0).dirty && phoneNumbers.at(0).errors" margin-left>Invalid value</p>
 
-    <ion-item>
-      <ion-label stacked>Phone number 1*</ion-label>
-      <ion-input formControlName="phoneNumber1" type="text"></ion-input>
-    </ion-item>
-    <p class="danger" *ngIf="formGroup.controls.phoneNumber1.dirty && formGroup.controls.phoneNumber1.errors" margin-left>Invalid value</p>
+      <ion-item>
+        <ion-label stacked>Phone number 2</ion-label>
+        <ion-input [formControlName]="1" type="text"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label stacked>Phone number 2</ion-label>
-      <ion-input formControlName="phoneNumber2" type="text"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label stacked>Phone number 3</ion-label>
+        <ion-input [formControlName]="2" type="text"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label stacked>Phone number 3</ion-label>
-      <ion-input formControlName="phoneNumber3" type="text"></ion-input>
-    </ion-item>
-
+    </div>
+    
     <ion-item>
       <ion-label stacked>State*</ion-label>
       <ion-select formControlName="stateId" (ionChange)="updateCities()">
@@ -104,18 +116,26 @@
     </ion-item>
     <p class="danger" *ngIf="formGroup.controls.stateId.dirty && formGroup.controls.stateId.errors" margin-left>Invalid value</p>
 
-    <ion-item>
-      <ion-label stacked>City*</ion-label>
-      <ion-select formControlName="cityId">
-        <ion-option
-          *ngFor="let city of citiesDTO"
-          [value]="city.id">
-            {{city.name}}
-        </ion-option>
-      </ion-select>
-    </ion-item>
-    <p class="danger" *ngIf="formGroup.controls.cityId.dirty && formGroup.controls.cityId.errors" margin-left>Invalid value</p>
+    <div class="panel-body" formArray="addresses">
+      <div class="panel-body" [formGroup]="address">
 
+        <ion-item>
+          <ion-label stacked>City*</ion-label>
+          <ion-select formControlName="cityId">
+            <ion-option
+              *ngFor="let city of citiesDTO"
+              [value]="city.id">
+                {{city.name}}
+            </ion-option>
+          </ion-select>
+        </ion-item>
+        <p class="danger" *ngIf="address.controls.cityId.dirty && address.controls.cityId.errors" margin-left>Invalid value</p>
+
+      </div>
+    </div>
+  
     <button ion-button block type="submit" [disabled]="formGroup.invalid">Sign Up</button>
+  
   </form>
+
 </ion-content>
