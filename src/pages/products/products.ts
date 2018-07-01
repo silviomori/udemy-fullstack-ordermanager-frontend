@@ -33,20 +33,22 @@ export class ProductsPage {
         error => {}
       );
 
-    }
+  }
 
-    loadImageURLs() {
-      for( var i = 0; i < this.items.length; i++ ) {
-        let item = this.items[i];
+  loadImageURLs() {
+    for( var i = 0; i < this.items.length; i++ ) {
+      let item = this.items[i];
+      if( item.thumbnailUrl == null ) {
         this.productService.getThumbnailsFromBucket(item.id)
           .subscribe(
-            response => { item.imgUrl = `${API_CONFIG.bucketBaseUrl}/prod${item.id}-small.jpg` },
+            response => { item.thumbnailUrl = `${API_CONFIG.bucketBaseUrl}/prod${item.id}-small.jpg` },
             error => {}
           );
       }
     }
+  }
 
-    showDetails(productId: string) {
-      this.navCtrl.push('ProductDetailPage', {productId: productId});
-    }
+  showDetails(productId: string) {
+    this.navCtrl.push('ProductDetailPage', {productId: productId});
+  }
 }

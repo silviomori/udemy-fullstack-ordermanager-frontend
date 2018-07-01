@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <ion-card>
-    <img [src]="item?.imgUrl || 'assets/imgs/prod.jpg'"/>
+    <img [src]="product?.imgUrl || 'assets/imgs/prod.jpg'"/>
     <ion-card-content>
       <ion-card-title>
         {{item?.nome}}
@@ -20,5 +20,5 @@
     </ion-card-content>
   </ion-card>
 
-  <button ion-button block outline>Add to cart</button>
+  <button ion-button block outline (click)="addToCart()">Add to cart</button>
 </ion-content>

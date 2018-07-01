@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductDTO } from '../../models/product.dto';
 import { ProductService } from '../../services/domain/product.service';
 import { API_CONFIG } from '../../config/api.config';
+import { CartService } from '../../services/domain/cart.service';
 
 @IonicPage()
 
@@ -13,12 +14,13 @@ import { API_CONFIG } from '../../config/api.config';
 
 export class ProductDetailPage {
 
-  item: ProductDTO;
+  product: ProductDTO;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public productService: ProductService) {
+    public productService: ProductService,
+    public cartService: CartService) {
   }
 
   ionViewDidLoad() {
@@ -26,20 +28,32 @@ export class ProductDetailPage {
     this.productService.fetchById(productId)
       .subscribe(
         response => {
-          this.item = response;
-          this.loadImageURLs();
+          this.product = response;
+          this.loadImagesURLs();
         },
         error => {}
       );
   }
 
-  loadImageURLs() {
-    this.productService.getImageFromBucket(this.item.id)
-      .subscribe(
-        response => { this.item.imgUrl = `${API_CONFIG.bucketBaseUrl}/prod${this.item.id}.jpg` },
-        error => {}
-      );
+  private loadImagesURLs() {
+    if( this.product.imgUrl == null ) {
+        this.productService.getImageFromBucket(this.product.id)
+        .subscribe(
+            response => { this.product.imgUrl = `${API_CONFIG.bucketBaseUrl}/prod${this.product.id}.jpg` },
+            error => {}
+        );
+    }
+    if( this.product.thumbnailUrl == null ) {
+        this.productService.getThumbnailsFromBucket(this.product.id)
+          .subscribe(
+            response => { this.product.thumbnailUrl = `${API_CONFIG.bucketBaseUrl}/prod${this.product.id}-small.jpg` },
+            error => {}
+          );
+    }
   }
 
-
+  addToCart() {
+    this.cartService.addProduct(this.product);
+    this.navCtrl.setRoot('CartPage');
+  }
 }
