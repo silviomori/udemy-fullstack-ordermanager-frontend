@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CategoryService } from '../../services/domain/category.service';
 import { CategoryDTO } from '../../models/category.dto';
 import { API_CONFIG } from '../../config/api.config';
+import { ProductsPage } from '../products/products';
 
 @IonicPage()
 
@@ -28,6 +29,10 @@ export class CategoriesPage {
         response => { this.items = response },
         error => { }
       );
+  }
+
+  showProducts(categoryId: string) {
+    this.navCtrl.push('ProductsPage', {categoryId: categoryId});
   }
 
 }
