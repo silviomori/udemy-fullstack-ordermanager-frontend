@@ -3,7 +3,6 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthService } from '../services/auth.service';
-import { HomePage } from '../pages/home/home';
 
 @Component({
   templateUrl: 'app.html'
@@ -28,7 +27,8 @@ export class MyApp {
     this.pages = [
       { title: 'Profile', component: 'ProfilePage' },
       { title: 'Categories', component: 'CategoriesPage' },
-      { title: 'Logout', component: '',  }
+      { title: 'Shopping Cart', component: 'CartPage' },
+      { title: 'Logout', component: '' }
     ];
 
   }
