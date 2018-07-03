@@ -1,21 +1,19 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AddressDTO } from '../../models/address.dto';
 import { StorageService } from '../../services/storage.service';
-import { CustomerDTO } from '../../models/customer.dto';
 import { CustomerService } from '../../services/domain/customer.service';
-import { API_CONFIG } from '../../config/api.config';
-
 
 @IonicPage()
 
 @Component({
-  selector: 'page-profile',
-  templateUrl: 'profile.html',
+  selector: 'page-pick-address',
+  templateUrl: 'pick-address.html',
 })
 
-export class ProfilePage {
+export class PickAddressPage {
 
-  customerDTO: CustomerDTO
+  items: AddressDTO[];
 
   constructor(
     public navCtrl: NavController,
@@ -30,8 +28,7 @@ export class ProfilePage {
       this.customerService.fetchByEmail(localUser.email)
         .subscribe( 
           response => { 
-            this.customerDTO = response as CustomerDTO;
-            this.getImageIfExists();
+            this.items = response['addresses'];
           },
           error => {
             if( error.status == 403 ) {
@@ -42,14 +39,7 @@ export class ProfilePage {
     } else {
       this.navCtrl.setRoot('HomePage');
     }
+
   }
 
-  getImageIfExists() {
-    this.customerService.getImageFromBucket(this.customerDTO.id)
-      .subscribe(
-        response => {
-          this.customerDTO.imgUrl = `${API_CONFIG.bucketBaseUrl}/cp${this.customerDTO.id}.jpg`;
-        }
-      );
-  }
 }

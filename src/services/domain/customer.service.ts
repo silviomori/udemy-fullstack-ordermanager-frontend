@@ -14,8 +14,8 @@ export class CustomerService {
         public storageService: StorageService){
     }
 
-    fetchByEmail(email: string) : Observable<CustomerDTO> {
-        return this.httpClient.get<CustomerDTO>(
+    fetchByEmail(email: string) {
+        return this.httpClient.get(
             `${API_CONFIG.baseUrl}/customers/email?value=${email}`);
     }
 
