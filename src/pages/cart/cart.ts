@@ -38,13 +38,7 @@ export class CartPage {
   }
 
   total() : number {
-    let total = 0;
-    let items = this.cartService.getCart().items;
-    for( var i = 0; i < items.length; i++ ) {
-        let item = items[i];
-        total += item.product.price * item.quantity;
-    }
-    return total;
+    return this.cartService.total();
   }
 
   keepShopping() {

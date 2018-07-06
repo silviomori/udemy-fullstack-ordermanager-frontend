@@ -19,6 +19,11 @@ export class CustomerService {
             `${API_CONFIG.baseUrl}/customers/email?value=${email}`);
     }
 
+    fetchById(id: string) {
+        return this.httpClient.get(
+            `${API_CONFIG.baseUrl}/customers/${id}`);
+    }
+
     getImageFromBucket(id: string) : Observable<any> {
         let url = `${API_CONFIG.bucketBaseUrl}/cp${id}.jpg`;
         return this.httpClient.get( url, {responseType: 'blob'} );

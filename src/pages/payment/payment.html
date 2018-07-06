@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Forma de pagamento</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form [formGroup]="formGroup" (ngSubmit)="nextPage(); $event.preventDefault()">
+    <ion-list radio-group formControlName="paymentType">
+      <ion-list-header>
+        Payment Type
+      </ion-list-header>
+     <ion-item>
+        <ion-label>Credit Card</ion-label>
+        <ion-radio checked="true" value="CreditCardPayment"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Ticket</ion-label>
+        <ion-radio value="TicketPayment"></ion-radio>
+      </ion-item>
+    </ion-list>
+
+    <ion-item *ngIf="formGroup.value['paymentType'] == 'CreditCardPayment'">
+      <ion-label stacked>Installments</ion-label>
+      <ion-select formControlName="installments">
+        <ion-option *ngFor="let i of installments; first as f" [value]="i" [selected]="f">{{i}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <button ion-button block type="submit" [disabled]="formGroup.invalid">Next</button>
+  </form>
+</ion-content>

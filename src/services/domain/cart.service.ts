@@ -87,4 +87,14 @@ export class CartService {
         return cart;
     }
 
+    total() : number {
+    let total = 0;
+        let items = this.getCart().items;
+        for( var i = 0; i < items.length; i++ ) {
+            let item = items[i];
+            total += item.product.price * item.quantity;
+        }
+        return total;
+    }    
+
 }

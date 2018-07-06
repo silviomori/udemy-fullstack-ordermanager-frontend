@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Review Your Order</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-header>
+      Order Items
+    </ion-card-header>
+    
+    <ion-list>
+      <ion-item *ngFor="let item of cartItems">
+        <ion-thumbnail item-start>
+          <img [src]="item.product.thumbnailUrl || 'assets/imgs/prod.jpg'">
+        </ion-thumbnail>
+        <h2>{{item.product.name}}</h2>
+        <p>{{item.product.price | currency}}</p>
+        <p class="nolinebreak">{{item.quantity}}</p>
+        <p item-end>{{item.product.price * item.quantity | currency}}</p>
+      </ion-item> 
+
+      <ion-item>
+        <h2>Total</h2>
+        <h2 item-end>{{total() | currency}}</h2>
+      </ion-item>
+    </ion-list> 
+  </ion-card>
+
+  <ion-card>
+      <ion-card-header>
+        Customer
+      </ion-card-header>
+      <ion-item>
+        <h2>{{customerDTO?.name}}</h2>
+        <p>{{customerDTO?.email}}</p>
+      </ion-item>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      Delivery Address
+    </ion-card-header>
+  
+    <ion-item>
+    <h2>{{addressDTO?.street}}, {{addressDTO?.number}}</h2>
+    <p>{{addressDTO?.complement}} {{addressDTO?.district}} {{addressDTO?.zipCode}}</p>
+    <p>{{addressDTO?.city.name}}, {{addressDTO?.city.state.name}}</p>
+  </ion-item>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      Payment
+    </ion-card-header>
+  
+    <ion-item *ngIf="insertOrderDTO.payment['paymentType']=='CreditCardPayment'">
+      <h3>Credit Card Payment</h3>
+      <p>Installments: {{insertOrderDTO.payment.installments}}</p>
+    </ion-item>
+    <ion-item *ngIf="insertOrderDTO.payment['paymentType']=='TicketPayment'">
+      <h3>Ticket Payment</h3>
+    </ion-item>
+  </ion-card>
+</ion-content>
