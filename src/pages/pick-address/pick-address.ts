@@ -37,10 +37,11 @@ export class PickAddressPage {
             let cart = this.cartService.getCart();
 
             this.insertOrderDTO = {
-              customerId: {id: response['id']},
+              customerId: response['id'],
               customerAddressId: null,
-              payment: null,
-              orderItems: cart.items.map( item => { return {productId: {id: item.product.id}, quantity: item.quantity}})
+              paymentType: null,
+              installments: null,
+              orderItems: cart.items.map( item => { return {productId: item.product.id, quantity: item.quantity}})
             }
           },
           error => {
@@ -55,7 +56,7 @@ export class PickAddressPage {
   }
 
   nextPage( address: AddressDTO ) {
-    this.insertOrderDTO.customerAddressId = {id: address.id};
+    this.insertOrderDTO.customerAddressId = address.id;
     this.navCtrl.push("PaymentPage", {order: this.insertOrderDTO });
   }
 }

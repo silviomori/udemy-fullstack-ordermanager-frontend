@@ -1,6 +1,4 @@
-import { RefDTO } from "./ref.dto";
-
 export interface OrderItemDTO {
-    productId: RefDTO;
+    productId: string;
     quantity: number;
 }

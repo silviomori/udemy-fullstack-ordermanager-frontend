@@ -32,7 +32,8 @@ export class PaymentPage {
   }
 
   nextPage() {
-    this.insertOrderDTO.payment = this.formGroup.value;
+    this.insertOrderDTO.paymentType = this.formGroup.controls.paymentType.value;
+    this.insertOrderDTO.installments = this.formGroup.controls.installments.value;
     this.navCtrl.setRoot("PlaceOrderPage", {order: this.insertOrderDTO});
   }
 
