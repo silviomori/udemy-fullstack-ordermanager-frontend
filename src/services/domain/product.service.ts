@@ -15,8 +15,11 @@ export class ProductService {
     return this.httpClient.get<ProductDTO>(`${API_CONFIG.baseUrl}/products/${productId}`);
   }
 
-  fetchByCategory(categoryId : string) {
-    return this.httpClient.get(`${API_CONFIG.baseUrl}/products/?categoryId=${categoryId}`);
+  fetchByCategory(categoryId : string, page: number = 0, linesPerPage: number = 24) {
+    return this.httpClient.get(`${API_CONFIG.baseUrl}/products/`+
+      `?categoryId=${categoryId}`+
+      `&pageNumber=${page}`+
+      `&linesPerPage=${linesPerPage}`);
   }
 
   getThumbnailsFromBucket(id: string) : Observable<any> {
