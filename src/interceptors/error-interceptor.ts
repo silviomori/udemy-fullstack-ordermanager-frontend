@@ -1,6 +1,8 @@
+
+import {throwError as observableThrowError, Observable} from 'rxjs';
+import {catchError} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Observable } from 'rxjs/Rx';
 import { StorageService } from '../services/storage.service';
 import { AlertController } from 'ionic-angular';
 import { FieldMessage } from '../models/fieldmessage';
@@ -13,8 +15,8 @@ export class ErrorInterceptor implements HttpInterceptor {
     }
 
     intercept(request: HttpRequest<any>, handler: HttpHandler): Observable<HttpEvent<any>> {
-        return handler.handle(request)
-        .catch((error, caught) => {
+        return handler.handle(request).pipe(
+        catchError((error, caught) => {
 
             let errorObj = error;
             if( errorObj.error ) {
@@ -41,8 +43,8 @@ export class ErrorInterceptor implements HttpInterceptor {
                     break;
             }
 
-            return Observable.throw(errorObj);
-        }) as any;
+            return observableThrowError(errorObj);
+        })) as any;
     }
 
     private handle401() {

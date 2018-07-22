@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs/Rx";
+import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { CustomerDTO } from "../../models/customer.dto";
 import { API_CONFIG } from "../../config/api.config";
