@@ -13,6 +13,8 @@ import { API_CONFIG } from '../../config/api.config';
 
 export class ProductsPage {
 
+  categoryName: string;
+
   items : ProductDTO[] = [];
 
   page : number = 0;
@@ -29,11 +31,12 @@ export class ProductsPage {
   }
 
   loadData() {
+    this.categoryName = this.navParams.get('categoryName');
     let categoryId = this.navParams.get('categoryId');
 
     let loader = this.presentLoading();
     
-    this.productService.fetchByCategory(categoryId, this.page, 7)
+    this.productService.fetchByCategory(categoryId, this.page, 10)
       .subscribe(
         response => {
           let start = this.items.length;
@@ -87,7 +90,7 @@ export class ProductsPage {
     this.loadData();
     setTimeout(() => {
       refresher.complete();
-    }, 1000);
+    }, 500);
   }
 
   doInfinite(infiniteScroll) {
@@ -95,6 +98,7 @@ export class ProductsPage {
     this.loadData();
     setTimeout(() => {
       infiniteScroll.complete();
-    }, 1000);
+    }, 2000);
   }
+
 }

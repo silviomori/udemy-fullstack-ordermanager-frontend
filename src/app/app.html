@@ -8,7 +8,15 @@
   <ion-content>
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+        <ion-row nowrap>
+          <ion-col col-1>
+              <ion-icon name={{p.icon}}></ion-icon>
+          </ion-col>
+          <ion-col col-4>
+              {{p.title}}
+          </ion-col>
+        </ion-row>
+
       </button>
     </ion-list>
   </ion-content>

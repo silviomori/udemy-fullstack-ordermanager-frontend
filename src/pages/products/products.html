@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Products</ion-title>
+    <ion-title>{{categoryName}} - Products</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -14,7 +14,7 @@
   </ion-refresher>
 
   <ion-fab top right edge>
-    <button navPush="CartPage" ion-fab mini>
+    <button navPush="CartPage" ion-fab>
       <ion-icon name="cart"></ion-icon>
     </button>
   </ion-fab>
@@ -24,8 +24,8 @@
       <ion-thumbnail item-start>
         <img [src]="item.thumbnailUrl || 'assets/imgs/prod.jpg'">
       </ion-thumbnail>
-      <h2>{{item.name}}</h2>
-      <p>{{item.price | currency}}</p>
+      <h1>{{item.name}}</h1>
+      <h2>{{item.price | currency}}</h2>
     </button>
   </ion-list>
 

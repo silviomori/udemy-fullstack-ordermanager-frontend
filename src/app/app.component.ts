@@ -13,7 +13,7 @@ export class MyApp {
 
   rootPage: string = 'HomePage';
 
-  pages: Array<{title: string, component: string}>;
+  pages: Array<{title: string, component: string, icon: string}>;
 
   constructor(
     public platform: Platform,
@@ -25,10 +25,10 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Profile', component: 'ProfilePage' },
-      { title: 'Categories', component: 'CategoriesPage' },
-      { title: 'Shopping Cart', component: 'CartPage' },
-      { title: 'Logout', component: '' }
+      { title: 'Profile', component: 'ProfilePage', icon: 'person'},
+      { title: 'Categories', component: 'CategoriesPage', icon: 'list-box' },
+      { title: 'Shopping Cart', component: 'CartPage', icon: 'cart' },
+      { title: 'Logout', component: '', icon: 'close' }
     ];
 
   }
@@ -37,7 +37,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
+      this.statusBar.styleLightContent();
       this.splashScreen.hide();
     });
   }

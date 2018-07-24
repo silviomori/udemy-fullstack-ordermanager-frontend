@@ -15,17 +15,17 @@
 <ion-content padding>
 
   <ion-fab top right edge>
-    <button navPush="CartPage" ion-fab mini>
+    <button navPush="CartPage" ion-fab>
       <ion-icon name="cart"></ion-icon>
     </button>
   </ion-fab>
 
   <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="showProducts(item.id)">
+    <button ion-item *ngFor="let item of items" (click)="showProducts(item)">
       <ion-thumbnail item-start>
         <img src="{{bucketBaseUrl}}/cat{{item.id}}.jpg">
       </ion-thumbnail>
-      <h2> {{item.name}} </h2>
+      <h1> {{item.name}} </h1>
     </button>
   </ion-list>
 
