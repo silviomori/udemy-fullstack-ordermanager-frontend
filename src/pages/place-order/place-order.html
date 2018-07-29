@@ -13,7 +13,7 @@
   <div *ngIf="!transactionId">
     <ion-card>
       <ion-card-header>
-        Order Items
+        <h1>Order Items</h1>
       </ion-card-header>
       
       <ion-list>
@@ -21,57 +21,59 @@
           <ion-thumbnail item-start>
             <img [src]="item.product.thumbnailUrl || 'assets/imgs/prod.jpg'">
           </ion-thumbnail>
-          <h2>{{item.product.name}}</h2>
-          <p>{{item.product.price | currency}}</p>
-          <p class="nolinebreak">{{item.quantity}}</p>
-          <p item-end>{{item.product.price * item.quantity | currency}}</p>
+          <h1>{{item.product.name}}</h1>
+          <h2>{{item.product.price | currency}}</h2>
+          <h2 class="nolinebreak">{{item.quantity}}</h2>
+          <h2 item-end>{{item.product.price * item.quantity | currency}}</h2>
         </ion-item> 
 
         <ion-item>
-          <h2>Total</h2>
-          <h2 item-end>{{total() | currency}}</h2>
+          <h1>Total</h1>
+          <h1 item-end>{{total() | currency}}</h1>
         </ion-item>
       </ion-list> 
     </ion-card>
 
     <ion-card>
         <ion-card-header>
-          Customer
+          <h1>Customer</h1>
         </ion-card-header>
         <ion-item>
-          <h2>{{customerDTO?.name}}</h2>
-          <p>{{customerDTO?.email}}</p>
+          <h1>{{customerDTO?.name}}</h1>
+          <h2>{{customerDTO?.email}}</h2>
         </ion-item>
     </ion-card>
 
     <ion-card>
       <ion-card-header>
-        Delivery Address
+        <h1>Delivery Address</h1>
       </ion-card-header>
     
       <ion-item>
-      <h2>{{addressDTO?.street}}, {{addressDTO?.number}}</h2>
-      <p>{{addressDTO?.complement}} {{addressDTO?.district}} {{addressDTO?.zipCode}}</p>
-      <p>{{addressDTO?.city.name}}, {{addressDTO?.city.state.name}}</p>
+      <h1>{{addressDTO?.street}}, {{addressDTO?.number}}</h1>
+      <h2>{{addressDTO?.complement}} {{addressDTO?.district}} {{addressDTO?.zipCode}}</h2>
+      <h2>{{addressDTO?.city.name}}, {{addressDTO?.city.state.name}}</h2>
     </ion-item>
     </ion-card>
 
     <ion-card>
       <ion-card-header>
-        Payment
+        <h1>Payment</h1>
       </ion-card-header>
     
       <ion-item *ngIf="insertOrderDTO.paymentType=='CreditCardPayment'">
-        <h3>Credit Card Payment</h3>
-        <p>Installments: {{insertOrderDTO.installments}}</p>
+        <h2>Credit Card Payment</h2>
+        <h2>Installments: {{insertOrderDTO.installments}}</h2>
       </ion-item>
       <ion-item *ngIf="insertOrderDTO.paymentType=='TicketPayment'">
-        <h3>Ticket Payment</h3>
+        <h2>Ticket Payment</h2>
       </ion-item>
     </ion-card>
 
-    <button ion-button block (click)="placeOrder()">Place Order</button>
-    <button ion-button block outline (click)="backToShoopingCart()">Back to Shopping Cart</button>
+    <ion-item>
+      <button ion-button large block color="secondary" (click)="placeOrder()">Place Order</button>
+      <button ion-button large block outline (click)="backToShoopingCart()">Back to Shopping Cart</button>
+    </ion-item>
   </div>
 
   <div *ngIf="transactionId">

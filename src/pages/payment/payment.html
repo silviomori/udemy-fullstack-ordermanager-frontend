@@ -12,14 +12,20 @@
   <form [formGroup]="formGroup" (ngSubmit)="nextPage(); $event.preventDefault()">
     <ion-list radio-group formControlName="paymentType">
       <ion-list-header>
-        Payment Type
+        <h1>Payment Type</h1>
       </ion-list-header>
      <ion-item>
-        <ion-label>Credit Card</ion-label>
+        <ion-label icon-start>
+            <ion-icon name="card"></ion-icon>
+            Credit Card
+        </ion-label>
         <ion-radio checked="true" value="CreditCardPayment"></ion-radio>
       </ion-item>
       <ion-item>
-        <ion-label>Ticket</ion-label>
+        <ion-label icon-start>
+            <ion-icon name="cash"></ion-icon>
+            Ticket
+        </ion-label>
         <ion-radio value="TicketPayment"></ion-radio>
       </ion-item>
     </ion-list>

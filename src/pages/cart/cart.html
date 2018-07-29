@@ -15,27 +15,38 @@
         <img [src]="item.product.thumbnailUrl || 'assets/imgs/prod.jpg'">
       </ion-thumbnail>
 
-      <h2>{{item.product.name}}</h2>
+      <h1>{{item.product.name}}</h1>
 
-      <p>{{item.product.price | currency}}</p>
+      <h2>{{item.product.price | currency}}</h2>
 
-      <ion-icon name="remove-circle" class="nolinebreak" color="primary" (click)=decreaseQuantity(item.product)></ion-icon>
-      <p class="nolinebreak">{{item.quantity}}</p>
-      <ion-icon name="add-circle" color="primary" (click)="increaseQuantity(item.product)"></ion-icon>
+      <h2>
+        <ion-icon name="remove-circle" class="nolinebreak" color="primary" (click)=decreaseQuantity(item.product)></ion-icon>
+        <h2 class="nolinebreak">{{item.quantity}}</h2>
+        <ion-icon name="add-circle" color="primary" (click)="increaseQuantity(item.product)"></ion-icon>
+      </h2>
       <ion-icon name="trash" item-end color="danger" (click)="removeProduct(item.product)"></ion-icon>
 
     </ion-item>
 
+    
     <ion-item *ngIf="total() > 0">
-        <h1>Total:</h1>
-        <h1 item-end>{{total()}}</h1>
+        <h1>Total</h1>
+        <h1 item-end>{{ total() | currency }}</h1>
     </ion-item>
     <ion-item *ngIf="total() <= 0">
         <h1>Your Shopping Cart is empty.</h1>
     </ion-item>
       
   </ion-list>  
-  
-  <button ion-button block (click)=keepShopping()>Keep Shopping</button>
-  <button *ngIf="total() > 0" ion-button block (click)=checkout() color="secondary">Proceed to Checkout</button>
+
+  <button ion-button icon-start block large (click)=keepShopping()>
+    <ion-icon name="cart"></ion-icon>
+    Keep Shopping
+  </button>
+
+  <button *ngIf="total() > 0" ion-button icon-start block large (click)=checkout() color="secondary">
+    <ion-icon name="card"></ion-icon>
+    Proceed to Checkout
+  </button>
+
 </ion-content>

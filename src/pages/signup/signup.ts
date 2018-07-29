@@ -33,26 +33,26 @@ export class SignupPage {
     public alertCtrl: AlertController) {
 
     this.address = this.formBuilder.group({
-      street : ['Rua Via', [Validators.required]],
-      number : ['25', [Validators.required]],
-      complement : ['Apto 3', []],
-      district : ['Copacabana', []],
-      zipCode : ['10828333', [Validators.required]],
+      street : ['', [Validators.required]],
+      number : ['', [Validators.required]],
+      complement : ['', []],
+      district : ['', []],
+      zipCode : ['', [Validators.required]],
       cityId : [null, [Validators.required]]
     });
 
     this.phoneNumbers = this.formBuilder.array([
-      ['977261827', [Validators.required]],
+      ['', [Validators.required]],
       ['', []],
       ['', []]
     ]);
 
     this.formGroup = this.formBuilder.group({
-      name: ['Joaquim', [Validators.required, Validators.minLength(5), Validators.maxLength(120)]],
-      email: ['joaquim@gmail.com', [Validators.required, Validators.email]],
-      customerType: ['1', [Validators.required]],
-      documentNumber: ['061.345.962-80', [Validators.required, Validators.minLength(11), Validators.maxLength(14)]],
-      password: ['123', [Validators.required]],
+      name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(120)]],
+      email: ['', [Validators.required, Validators.email]],
+      customerType: ['', [Validators.required]],
+      documentNumber: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(14)]],
+      password: ['', [Validators.required]],
       addresses: this.formBuilder.array([
         this.address
       ]),

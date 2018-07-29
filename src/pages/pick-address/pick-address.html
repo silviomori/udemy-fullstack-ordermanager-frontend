@@ -10,12 +10,14 @@
 <ion-content padding>
     <ion-list>
         <ion-list-header>
-          Delivery address
+          <h1>Delivery address</h1>
         </ion-list-header>
         <button ion-item *ngFor="let item of items" (click)="nextPage(item)">
-            <h2>{{item.street}}, {{item.number}}</h2>
-            <p>{{item.complement}} {{item.district}} {{item.zipCode}}</p>
-            <p>{{item.city.name}}, {{item.city.state.name}}</p>
+            <h1>{{item.street}}, {{item.number}}</h1>
+            <h2>{{item.complement}}</h2>
+            <h2>{{item.district}}</h2>
+            <h2>{{item.city.name}} / {{item.city.state.name}}</h2>
+            <h2>Zip Code: {{item.zipCode}}</h2>
         </button>
       </ion-list>
 </ion-content>

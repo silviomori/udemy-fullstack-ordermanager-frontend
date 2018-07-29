@@ -1,24 +1,26 @@
 <ion-content padding>
-  <h3>TechnoMori Store</h3>
 
   <img src="assets/imgs/login.png" alt="logo">
+
+  <h3>TechnoMori Store</h3>
 
   <form>
 
     <ion-item>
-      <ion-label stacked>Email</ion-label>
-      <ion-input [(ngModel)]="credentialsDTO.email" name="email" type="text"></ion-input>
+      <ion-label floating>Email</ion-label>
+      <ion-input [(ngModel)]="credentialsDTO.email" name="email" type="text" autocapitalize="none"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Password</ion-label>
+      <ion-label floating>Password</ion-label>
       <ion-input [(ngModel)]="credentialsDTO.password" name="password" type="password"></ion-input>
     </ion-item>
-
-    <button ion-button block (click)="login()">Log in</button>
+    
 
   </form>
 
-  <button ion-button block outline (click)="signup()">Sign Up</button>
+  <p>
+  <button ion-button block large (click)="login()">Log in</button>
+  <button ion-button block outline large (click)="signup()">Sign Up</button>
 
 </ion-content>
