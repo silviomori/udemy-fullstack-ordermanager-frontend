@@ -1,0 +1,90 @@
+{    
+    "--------------- app.html ---------------": "",
+    "MENU": "Menu",
+    
+    "--------------- app.component.ts ---------------": "",
+    "PROFILE": "Profile",
+    "CATEGORIES": "Categories",
+    "SHOPPING_CART": "Shopping Cart",
+    "LOGOUT": "Logout",
+
+    "--------------- home.html ---------------": "",
+    "APP_TITLE": "TechnoMori Store",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "LOGIN": "Log in",
+    "SIGNUP": "Sign Up",
+
+    "--------------- categories.html ---------------": "",
+    "CATEGORIES_TITLE": "Categories",
+
+    "--------------- products.html ---------------": "",
+    "PRODUCTS_TITLE": "Products",
+    
+    "--------------- products.ts ---------------": "",
+    "PLEASE_WAIT": "Please waaaaait...",
+    
+    "--------------- product-detail.html ---------------": "",
+    "PRODUCT_DETAILS": "Product Details",
+    "ADD_TO_CART": "Add to cart",
+    
+    "--------------- cart.html ---------------": "",
+    "SHOPPING_CART_TITLE": "Shopping Cart",
+    "TOTAL": "Total",
+    "CART_EMPTY": "Your Shopping Cart is empty.",
+    "KEEP_SHOPPING": "Keep Shopping",
+    "CHECKOUT": "Proceed to Checkout",
+
+    "--------------- pick-address.html ---------------": "",
+    "PICK_ADDRESS_TITLE": "Choose Address",
+    "DELIVERY_ADDRESS": "Delivery address",
+    "COMPLEMENT": "Complement",
+    "DISTRICT": "District",
+    "CITY": "City",
+    "ZIP_CODE": "Zip Code",
+
+    "--------------- payment.html ---------------": "",
+    "PAYMENT_TYPE": "Payment Type",
+    "CREDIT_CARD": "Credit Card",
+    "TICKET": "Ticket",
+    "INSTALLMENTS": "Installments",
+    "NEXT": "Next",
+
+    "--------------- place-order.html ---------------": "",
+    "PLACEORDER_TITLE_REVIEW": "Review Your Order",
+    "PLACEORDER_TITLE_CONFIRMED": "Order confirmed!",
+    "ORDER_ITEMS": "Order Items",
+    "CUSTOMER": "Customer",
+    "PAYMENT":  "Payment",
+    "PLACE_ORDER": "Place Order",
+    "BACK_TO_CART": "Back to Shopping Cart",
+    "ORDER_PLACED": "Your order has been placed!",
+    "TRANSACTION_ID": "Transaction ID",
+    "CHECK_YOUR_EMAIL": "Check your email.",
+
+    "--------------- profile.html ---------------": "",
+    "PROFILE_TITLE": "Profile",
+    "CHANGE_PICTURE": "Change profile picture",
+    "SAVE_PICTURE": "Save Picture",
+    "DISMISS_PICTURE": "Dismiss Picture",
+    "GALLERY": "Gallery",
+    "CAMERA": "Camera",
+
+    "--------------- signup.html ---------------": "",
+    "SIGNUP_TITLE": "Sign up",
+    "INVALID_VALUE": "Invalid value",
+    "NAME": "Name",
+    "CUSTOMER_TYPE": "Customer Type",
+    "INDIVIDUAL": "Individual",
+    "CORPORATE": "Corporate",
+    "DOCUMENT_TYPES": "ID / CN",
+    "STREET": "Street",
+    "NUMBER": "Number",
+    "PHONE_NUMBER": "Phone number",
+    "STATE": "State",
+
+    "--------------- POPUP BUTTONS ---------------": "",
+    "OK": "OK",
+    "CANCEL": "Cancel"
+
+}

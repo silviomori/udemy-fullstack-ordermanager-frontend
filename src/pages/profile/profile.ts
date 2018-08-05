@@ -4,7 +4,7 @@ import { StorageService } from '../../services/storage.service';
 import { CustomerDTO } from '../../models/customer.dto';
 import { CustomerService } from '../../services/domain/customer.service';
 import { API_CONFIG } from '../../config/api.config';
-import { Camera, CameraOptions } from '../../../node_modules/@ionic-native/camera';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 
 @IonicPage()

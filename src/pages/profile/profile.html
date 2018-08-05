@@ -2,7 +2,7 @@
 
   <ion-navbar>
     
-    <ion-title>Profile</ion-title>
+    <ion-title>{{ 'PROFILE_TITLE' | translate }}</ion-title>
 
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -23,27 +23,27 @@
 
   <ion-card>
     <ion-card-header>
-      <h2>Change profile picture</h2>
+      <h2>{{ 'CHANGE_PICTURE' | translate }}</h2>
     </ion-card-header>
     <ion-item *ngIf="picture">
       <img class="circle" [src]="picture">
     </ion-item>
     <ion-item>
       <button *ngIf="picture" ion-button large block color="secondary" (click)="sendProfilePicture()" [disabled]="cameraOn">
-          Save Picture
+          {{ 'SAVE_PICTURE' | translate }}
       </button>
       <button *ngIf="picture" ion-button large block outline color="danger" (click)="cancelProfilePicture()" [disabled]="cameraOn">
-          Dismiss Picture
+          {{ 'DISMISS_PICTURE' | translate }}
       </button>
     </ion-item>
     <ion-item>
       <button ion-button icon-start large (click)="getGalleryPicture()" [disabled]="picture" class="width_half">
           <ion-icon name="images"></ion-icon>
-          Gallery
+          {{ 'GALLERY' | translate }}
       </button>
       <button ion-button icon-start large (click)="getCameraPicture()" [disabled]="picture" class="width_half">
           <ion-icon  name="camera"></ion-icon>
-          Camera
+          {{ 'CAMERA' | translate }}
       </button>
     </ion-item>
   </ion-card>

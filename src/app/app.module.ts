@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
@@ -17,6 +17,9 @@ import { ProductService } from '../services/domain/product.service';
 import { CartService } from '../services/domain/cart.service';
 import { ImageUtilService } from '../services/image-util.service';
 
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 @NgModule({
   declarations: [
     MyApp
@@ -25,6 +28,13 @@ import { ImageUtilService } from '../services/image-util.service';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -47,3 +57,7 @@ import { ImageUtilService } from '../services/image-util.service';
 })
 
 export class AppModule {}
+
+export function createTranslateLoader(httpClient: HttpClient) {
+  return new TranslateHttpLoader( httpClient, './assets/i18n/', '.json' );
+}

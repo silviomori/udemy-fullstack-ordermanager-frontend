@@ -3,8 +3,10 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthService } from '../services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
+  selector: 'MyApp',
   templateUrl: 'app.html'
 })
 
@@ -19,17 +21,43 @@ export class MyApp {
     public platform: Platform,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    public authService: AuthService) {
+    public authService: AuthService,
+    public translate: TranslateService) {
+
+    translate.setDefaultLang('pt');
 
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Profile', component: 'ProfilePage', icon: 'person'},
-      { title: 'Categories', component: 'CategoriesPage', icon: 'list-box' },
-      { title: 'Shopping Cart', component: 'CartPage', icon: 'cart' },
-      { title: 'Logout', component: '', icon: 'close' }
+      { title: '', component: 'ProfilePage', icon: 'person'},
+      { title: '', component: 'CategoriesPage', icon: 'list-box' },
+      { title: '', component: 'CartPage', icon: 'cart' },
+      { title: '', component: '', icon: 'close' }
     ];
+
+    translate.get("PROFILE").subscribe(
+      value => {
+        this.pages[0].title = value;
+      }
+    );
+
+    translate.get("CATEGORIES").subscribe(
+      value => {
+        this.pages[1].title = value;
+      }
+    );
+
+    translate.get("SHOPPING_CART").subscribe(
+      value => {
+        this.pages[2].title = value;
+      }
+    );
+
+    translate.get("LOGOUT").subscribe(
+      value => {
+        this.pages[3].title = value;
+      }
+    );
 
   }
 
@@ -43,8 +71,8 @@ export class MyApp {
   }
 
   openPage( page: {title: string, component: string} ) {
-    switch(page.title) {
-      case 'Logout':
+    switch(page.component) {
+      case '':
         this.authService.logout();
         this.nav.setRoot('HomePage');
         break;

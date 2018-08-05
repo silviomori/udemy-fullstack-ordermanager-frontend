@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{ product?.name }}</ion-title>
+    <ion-title>{{ 'PRODUCT_DETAILS' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -46,7 +46,7 @@
   <ion-item>
     <button ion-button icon-start large block color="secondary" (click)="addToCart()">
         <ion-icon name="cart"></ion-icon>
-        Add to cart
+        {{ 'ADD_TO_CART' | translate }}
     </button>
   </ion-item>
 </ion-content>

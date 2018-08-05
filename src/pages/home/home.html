@@ -2,17 +2,17 @@
 
   <img src="assets/imgs/login.png" alt="logo">
 
-  <h3>TechnoMori Store</h3>
+  <h3>{{ 'APP_TITLE' | translate }}</h3>
 
   <form>
 
     <ion-item>
-      <ion-label floating>Email</ion-label>
+      <ion-label floating>{{ 'EMAIL' | translate }}</ion-label>
       <ion-input [(ngModel)]="credentialsDTO.email" name="email" type="text" autocapitalize="none"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Password</ion-label>
+      <ion-label floating>{{ 'PASSWORD' | translate }}</ion-label>
       <ion-input [(ngModel)]="credentialsDTO.password" name="password" type="password"></ion-input>
     </ion-item>
     
@@ -20,7 +20,7 @@
   </form>
 
   <p>
-  <button ion-button block large (click)="login()">Log in</button>
-  <button ion-button block outline large (click)="signup()">Sign Up</button>
+  <button ion-button block large (click)="login()">{{ 'LOGIN' | translate }}</button>
+  <button ion-button block outline large (click)="signup()">{{ 'SIGNUP' | translate }}</button>
 
 </ion-content>

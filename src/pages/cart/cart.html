@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
     </button>    
-    <ion-title>Shopping Cart</ion-title>
+    <ion-title>{{ 'SHOPPING_CART_TITLE' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -30,23 +30,23 @@
 
     
     <ion-item *ngIf="total() > 0">
-        <h1>Total</h1>
+        <h1>{{ 'TOTAL' | translate }}</h1>
         <h1 item-end>{{ total() | currency }}</h1>
     </ion-item>
     <ion-item *ngIf="total() <= 0">
-        <h1>Your Shopping Cart is empty.</h1>
+        <h1>{{ 'CART_EMPTY' | translate }}</h1>
     </ion-item>
       
   </ion-list>  
 
   <button ion-button icon-start block large (click)=keepShopping()>
     <ion-icon name="cart"></ion-icon>
-    Keep Shopping
+    {{ 'KEEP_SHOPPING' | translate }}
   </button>
 
   <button *ngIf="total() > 0" ion-button icon-start block large (click)=checkout() color="secondary">
     <ion-icon name="card"></ion-icon>
-    Proceed to Checkout
+    {{ 'CHECKOUT' | translate }}
   </button>
 
 </ion-content>

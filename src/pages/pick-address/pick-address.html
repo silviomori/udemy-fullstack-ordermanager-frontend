@@ -3,21 +3,21 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Checkout</ion-title>
+    <ion-title>{{ 'PICK_ADDRESS_TITLE' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
     <ion-list>
         <ion-list-header>
-          <h1>Delivery address</h1>
+          <h1>{{ 'DELIVERY_ADDRESS' | translate }}</h1>
         </ion-list-header>
         <button ion-item *ngFor="let item of items" (click)="nextPage(item)">
             <h1>{{item.street}}, {{item.number}}</h1>
-            <h2>{{item.complement}}</h2>
-            <h2>{{item.district}}</h2>
-            <h2>{{item.city.name}} / {{item.city.state.name}}</h2>
-            <h2>Zip Code: {{item.zipCode}}</h2>
+            <h2>{{ 'COMPLEMENT' | translate }}: {{item.complement}}</h2>
+            <h2>{{ 'DISTRICT' | translate }}: {{item.district}}</h2>
+            <h2>{{ 'CITY' | translate }}: {{item.city.name}} / {{item.city.state.name}}</h2>
+            <h2>{{ 'ZIP_CODE' | translate }}: {{item.zipCode}}</h2>
         </button>
       </ion-list>
 </ion-content>

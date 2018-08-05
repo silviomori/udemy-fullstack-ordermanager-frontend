@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Signup</ion-title>
+    <ion-title>{{ 'SIGNUP_TITLE' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -11,82 +11,82 @@
   <form [formGroup]="formGroup" (ngSubmit)="signupUser(); $event.preventDefault()">
   
     <ion-item>
-      <ion-label floating>Name*</ion-label>
+      <ion-label floating>{{ 'NAME' | translate }}*</ion-label>
       <ion-input formControlName="name" type="text"></ion-input>
     </ion-item>
-    <p class="danger" *ngIf="formGroup.controls.name.dirty && formGroup.controls.name.errors" margin-left>Invalid value</p>
+    <p class="danger" *ngIf="formGroup.controls.name.dirty && formGroup.controls.name.errors" margin-left>{{ 'INVALID_VALUE' | translate }}</p>
 
     <ion-item>
-      <ion-label floating>Email*</ion-label>
+      <ion-label floating>{{ 'EMAIL' | translate }}*</ion-label>
       <ion-input formControlName="email" type="text"></ion-input>
     </ion-item>
-    <p class="danger" *ngIf="formGroup.controls.email.dirty && formGroup.controls.email.errors" margin-left>Invalid value</p>
+    <p class="danger" *ngIf="formGroup.controls.email.dirty && formGroup.controls.email.errors" margin-left>{{ 'INVALID_VALUE' | translate }}</p>
 
     <ion-list radio-group formControlName="customerType">
       <ion-row>
         <ion-list-header>
-          Customer Type
+            {{ 'CUSTOMER_TYPE' | translate }}
         </ion-list-header>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-item>
               <ion-radio value="1"></ion-radio>
-              <ion-label>Individual</ion-label>
+              <ion-label>{{ 'INDIVIDUAL' | translate }}</ion-label>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
               <ion-radio value="2"></ion-radio>
-              <ion-label>Corporate</ion-label>
+              <ion-label>{{ 'CORPORATE' | translate }}</ion-label>
           </ion-item>
         </ion-col>
       </ion-row>
     </ion-list>
-    <p class="danger" *ngIf="formGroup.controls.customerType.dirty && formGroup.controls.customerType.errors" margin-left>Invalid value</p>
+    <p class="danger" *ngIf="formGroup.controls.customerType.dirty && formGroup.controls.customerType.errors" margin-left>{{ 'INVALID_VALUE' | translate }}</p>
 
     <ion-item>
-      <ion-label floating>ID / CN</ion-label>
+      <ion-label floating>{{ 'DOCUMENT_TYPES' | translate }}</ion-label>
       <ion-input formControlName="documentNumber" type="text"></ion-input>
     </ion-item>
-    <p class="danger" *ngIf="formGroup.controls.documentNumber.dirty && formGroup.controls.documentNumber.errors" margin-left>Invalid value</p>
+    <p class="danger" *ngIf="formGroup.controls.documentNumber.dirty && formGroup.controls.documentNumber.errors" margin-left>{{ 'INVALID_VALUE' | translate }}</p>
 
     <ion-item>
-      <ion-label floating>Password*</ion-label>
+      <ion-label floating>{{ 'PASSWORD' | translate }}*</ion-label>
       <ion-input formControlName="password" type="password"></ion-input>
     </ion-item> 
-    <p class="danger" *ngIf="formGroup.controls.password.dirty && formGroup.controls.password.errors" margin-left>Invalid value</p>
+    <p class="danger" *ngIf="formGroup.controls.password.dirty && formGroup.controls.password.errors" margin-left>{{ 'INVALID_VALUE' | translate }}</p>
 
     <div class="panel-body" formArray="addresses">
       <div class="panel-body" [formGroup]="address">
 
         <ion-item>
-          <ion-label floating>Street*</ion-label>
+          <ion-label floating>{{ 'STREET' | translate }}*</ion-label>
           <ion-input formControlName="street" type="text"></ion-input>
         </ion-item>
-        <p class="danger" *ngIf="address.controls.street.dirty && address.controls.street.errors" margin-left>Invalid value</p>
+        <p class="danger" *ngIf="address.controls.street.dirty && address.controls.street.errors" margin-left>{{ 'INVALID_VALUE' | translate }}</p>
   
         <ion-item>
-          <ion-label floating>Number*</ion-label>
+          <ion-label floating>{{ 'NUMBER' | translate }}*</ion-label>
           <ion-input formControlName="number" type="text"></ion-input>
         </ion-item>
-        <p class="danger" *ngIf="address.controls.number.dirty && address.controls.number.errors" margin-left>Invalid value</p>
+        <p class="danger" *ngIf="address.controls.number.dirty && address.controls.number.errors" margin-left>{{ 'INVALID_VALUE' | translate }}</p>
     
         <ion-item>
-          <ion-label floating>Complement</ion-label>
+          <ion-label floating>{{ 'COMPLEMENT' | translate }}</ion-label>
           <ion-input formControlName="complement" type="text"></ion-input>
         </ion-item>
     
         <ion-item>
-          <ion-label floating>District</ion-label>
+          <ion-label floating>{{ 'DISTRICT' | translate }}</ion-label>
           <ion-input formControlName="district" type="text"></ion-input>
         </ion-item>
     
         <ion-item>
-          <ion-label floating>Zip Code*</ion-label>
+          <ion-label floating>{{ 'ZIP_CODE' | translate }}*</ion-label>
           <ion-input formControlName="zipCode" type="text"></ion-input>
         </ion-item>
-        <p class="danger" *ngIf="address.controls.zipCode.dirty && address.controls.zipCode.errors" margin-left>Invalid value</p>
+        <p class="danger" *ngIf="address.controls.zipCode.dirty && address.controls.zipCode.errors" margin-left>{{ 'INVALID_VALUE' | translate }}</p>
 
       </div>
     </div>
@@ -94,26 +94,27 @@
     <div class="panel-body" formGroupName="phoneNumbers">
 
       <ion-item>
-        <ion-label floating>Phone number 1*</ion-label>
+        <ion-label floating>{{ 'PHONE_NUMBER' | translate }} 1*</ion-label>
         <ion-input [formControlName]="0" type="text"></ion-input>
       </ion-item>
-      <p class="danger" *ngIf="phoneNumbers.at(0).dirty && phoneNumbers.at(0).errors" margin-left>Invalid value</p>
+      <p class="danger" *ngIf="phoneNumbers.at(0).dirty && phoneNumbers.at(0).errors" margin-left>{{ 'INVALID_VALUE' | translate }}</p>
 
       <ion-item>
-        <ion-label floating>Phone number 2</ion-label>
+        <ion-label floating>{{ 'PHONE_NUMBER' | translate }} 2</ion-label>
         <ion-input [formControlName]="1" type="text"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label floating>Phone number 3</ion-label>
+        <ion-label floating>{{ 'PHONE_NUMBER' | translate }} 3</ion-label>
         <ion-input [formControlName]="2" type="text"></ion-input>
       </ion-item>
 
     </div>
     
     <ion-item>
-      <ion-label floating>State*</ion-label>
-      <ion-select formControlName="stateId" (ionChange)="updateCities()">
+      <ion-label floating>{{ 'STATE' | translate }}*</ion-label>
+      <ion-select formControlName="stateId" (ionChange)="updateCities()"
+       okText="{{ 'OK' | translate }}" cancelText="{{ 'CANCEL' | translate }}">
         <ion-option
           *ngFor="let state of statesDTO; first as f"
           [value]="state.id"
@@ -122,13 +123,13 @@
         </ion-option>
       </ion-select>
     </ion-item>
-    <p class="danger" *ngIf="formGroup.controls.stateId.dirty && formGroup.controls.stateId.errors" margin-left>Invalid value</p>
+    <p class="danger" *ngIf="formGroup.controls.stateId.dirty && formGroup.controls.stateId.errors" margin-left>{{ 'INVALID_VALUE' | translate }}</p>
 
     <div class="panel-body" formArray="addresses">
       <div class="panel-body" [formGroup]="address">
 
         <ion-item>
-          <ion-label floating>City*</ion-label>
+          <ion-label floating>{{ 'CITY' | translate }}*</ion-label>
           <ion-select formControlName="cityId">
             <ion-option
               *ngFor="let city of citiesDTO"
@@ -137,12 +138,12 @@
             </ion-option>
           </ion-select>
         </ion-item>
-        <p class="danger" *ngIf="address.controls.cityId.dirty && address.controls.cityId.errors" margin-left>Invalid value</p>
+        <p class="danger" *ngIf="address.controls.cityId.dirty && address.controls.cityId.errors" margin-left>{{ 'INVALID_VALUE' | translate }}</p>
 
       </div>
     </div>
   
-    <button ion-button block type="submit" [disabled]="formGroup.invalid">Sign Up</button>
+    <button ion-button block type="submit" [disabled]="formGroup.invalid">{{ 'SIGNUP_TITLE' | translate }}</button>
   
   </form>
 

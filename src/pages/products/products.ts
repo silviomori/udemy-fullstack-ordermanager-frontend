@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController, Loading } from 
 import { ProductDTO } from '../../models/product.dto';
 import { ProductService } from '../../services/domain/product.service';
 import { API_CONFIG } from '../../config/api.config';
+import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
 
@@ -23,7 +24,11 @@ export class ProductsPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public productService: ProductService,
-    public loadingCtrl: LoadingController) {
+    public loadingCtrl: LoadingController,
+    public translate: TranslateService) {
+
+      translate.setDefaultLang('pt');
+
   }
 
   ionViewDidLoad() {
@@ -77,9 +82,17 @@ export class ProductsPage {
   }
 
   presentLoading(): Loading {
+    let loadingStr: string;
+    this.translate.get("PLEASE_WAIT").subscribe(
+      value => {
+        loadingStr = value;
+      }
+    );
+
     let loader = this.loadingCtrl.create({
-      content: "Please wait..."
+      content: loadingStr
     });
+    
     loader.present();
     return loader;
   }

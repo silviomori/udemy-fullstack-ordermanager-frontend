@@ -1,0 +1,90 @@
+{    
+    "--------------- app.html ---------------": "",
+    "MENU": "Menu",
+    
+    "--------------- app.component.ts ---------------": "",
+    "PROFILE": "Perfil",
+    "CATEGORIES": "Categorias",
+    "SHOPPING_CART": "Carrinho",
+    "LOGOUT": "Sair",
+
+    "--------------- home.html ---------------": "",
+    "APP_TITLE": "Loja da TechnoMori",
+    "EMAIL": "Email",
+    "PASSWORD": "Senha",
+    "LOGIN": "Entrar",
+    "SIGNUP": "Registre-se",
+
+    "--------------- categories.html ---------------": "",
+    "CATEGORIES_TITLE": "Categorias",
+
+    "--------------- products.html ---------------": "",
+    "PRODUCTS_TITLE": "Produtos",
+    
+    "--------------- products.ts ---------------": "",
+    "PLEASE_WAIT": "Aguarde...",
+    
+    "--------------- product-detail.html ---------------": "",
+    "PRODUCT_DETAILS": "Detalhes do Produto",
+    "ADD_TO_CART": "Adicionar ao Carrinho",
+    
+    "--------------- cart.html ---------------": "",
+    "SHOPPING_CART_TITLE": "Carrinho",
+    "TOTAL": "Total",
+    "CART_EMPTY": "Seu carrinho está vazio.",
+    "KEEP_SHOPPING": "Continuar comprando",
+    "CHECKOUT": "Finalizar pedido",
+
+    "--------------- pick-address.html ---------------": "",
+    "PICK_ADDRESS_TITLE": "Entrega",
+    "DELIVERY_ADDRESS": "Endereço de entrega",
+    "COMPLEMENT": "Complemento",
+    "DISTRICT": "Bairro",
+    "CITY": "Cidade",
+    "ZIP_CODE": "CEP",
+
+    "--------------- payment.html ---------------": "",
+    "PAYMENT_TYPE": "Método de Pagamento",
+    "CREDIT_CARD": "Cartão de Crédito",
+    "TICKET": "Boleto",
+    "INSTALLMENTS": "Parcelas",
+    "NEXT": "Próximo",
+
+    "--------------- place-order.html ---------------": "",
+    "PLACEORDER_TITLE_REVIEW": "Revise seu Pedido",
+    "PLACEORDER_TITLE_CONFIRMED": "Pedido Confirmado!",
+    "ORDER_ITEMS": "Itens do pedido",
+    "CUSTOMER": "Cliente",
+    "PAYMENT":  "Pagamento",
+    "PLACE_ORDER": "Confirmar Compra",
+    "BACK_TO_CART": "Voltar ao Carrinho",
+    "ORDER_PLACED": "Seu pedido foi confirmado!",
+    "TRANSACTION_ID": "Número do pedido",
+    "CHECK_YOUR_EMAIL": "Verifique seu email.",
+
+    "--------------- profile.html ---------------": "",
+    "PROFILE_TITLE": "Pefil",
+    "CHANGE_PICTURE": "Trocar foto do perfil",
+    "SAVE_PICTURE": "Salvar",
+    "DISMISS_PICTURE": "Descartar",
+    "GALLERY": "Galeria",
+    "CAMERA": "Câmera",
+
+    "--------------- signup.html ---------------": "",
+    "SIGNUP_TITLE": "Registre-se",
+    "INVALID_VALUE": "Valor inválido",
+    "NAME": "Nome",
+    "CUSTOMER_TYPE": "Tipo de cliente",
+    "INDIVIDUAL": "Pessoa Física",
+    "CORPORATE": "Pessoa Jurídica",
+    "DOCUMENT_TYPES": "CPF / CNPJ",
+    "STREET": "Rua / Av.",
+    "NUMBER": "Número",
+    "PHONE_NUMBER": "Telefone",
+    "STATE": "Estado",
+
+    "--------------- POPUP BUTTONS ---------------": "",
+    "OK": "OK",
+    "CANCEL": "Cancelar"
+
+}
