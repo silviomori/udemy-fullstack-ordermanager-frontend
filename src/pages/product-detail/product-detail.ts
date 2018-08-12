@@ -32,6 +32,12 @@ export class ProductDetailPage {
 
   ionViewDidLoad() {
     let productId = this.navParams.get("productId");
+
+    if( productId == null ) {
+      this.navCtrl.setRoot('CategoriesPage');
+      return;
+    } 
+
     this.productService.fetchById(productId)
       .subscribe(
         response => {

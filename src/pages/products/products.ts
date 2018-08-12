@@ -43,6 +43,11 @@ export class ProductsPage {
     this.categoryName = this.navParams.get('categoryName');
     let categoryId = this.navParams.get('categoryId');
 
+    if( categoryId == null ) {
+      this.navCtrl.setRoot('CategoriesPage');
+      return;
+    } 
+
     let loader = this.presentLoading();
     
     this.productService.fetchByCategory(categoryId, this.page, 10)

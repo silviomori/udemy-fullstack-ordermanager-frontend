@@ -41,7 +41,17 @@ export class PlaceOrderPage {
   }
 
   ionViewDidLoad() {
-    this.cartItems = this.cartService.getCart().items;
+    if( this.insertOrderDTO == null ) {
+      this.backToShoopingCart();
+      return;
+    }
+
+    this.cartItems = this.cartService.getCart().items; 
+    if( this.cartItems.length == 0 ) {
+      this.backToShoopingCart(); 
+      return;
+    }
+
     this.customerService.fetchById( this.insertOrderDTO.customerId )
       .subscribe(
         response => { 
@@ -49,7 +59,7 @@ export class PlaceOrderPage {
           this.addressDTO = this.findAddress( this.insertOrderDTO.customerAddressId, response['addresses'] );
         },
         error => {}
-      );
+    );
   }
 
   private findAddress(addressId: string, list: AddressDTO[]): AddressDTO {

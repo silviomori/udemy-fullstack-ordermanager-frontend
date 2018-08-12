@@ -63,11 +63,11 @@
         <h1>{{ 'PAYMENT' | translate }}</h1>
       </ion-card-header>
     
-      <ion-item *ngIf="insertOrderDTO.paymentType=='CreditCardPayment'">
+      <ion-item *ngIf="insertOrderDTO?.paymentType=='CreditCardPayment'">
         <h2>{{ 'CREDIT_CARD' | translate }}</h2>
         <h2>{{ 'INSTALLMENTS' | translate }}: {{insertOrderDTO.installments}}</h2>
       </ion-item>
-      <ion-item *ngIf="insertOrderDTO.paymentType=='TicketPayment'">
+      <ion-item *ngIf="insertOrderDTO?.paymentType=='TicketPayment'">
         <h2>{{ 'TICKET' | translate }}</h2>
       </ion-item>
     </ion-card>
