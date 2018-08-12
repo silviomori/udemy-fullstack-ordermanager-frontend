@@ -4,6 +4,7 @@ import { ProductDTO } from '../../models/product.dto';
 import { ProductService } from '../../services/domain/product.service';
 import { API_CONFIG } from '../../config/api.config';
 import { CartService } from '../../services/domain/cart.service';
+import { StorageService } from '../../services/storage.service';
 
 @IonicPage()
 
@@ -16,11 +17,17 @@ export class ProductDetailPage {
 
   product: ProductDTO;
 
+  currency: string;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public productService: ProductService,
-    public cartService: CartService) {
+    public cartService: CartService,
+    public storage: StorageService) {
+
+      this.currency = this.storage.getCurrency();
+
   }
 
   ionViewDidLoad() {
@@ -56,4 +63,5 @@ export class ProductDetailPage {
     this.cartService.addProduct(this.product);
     this.navCtrl.setRoot('CartPage');
   }
+
 }

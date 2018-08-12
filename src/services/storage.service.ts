@@ -43,4 +43,29 @@ export class StorageService {
             localStorage.setItem( STORAGE_KEYS.cart, JSON.stringify( cart ) );
         }
     }
+
+    getLanguage() : string {
+        return localStorage.getItem( STORAGE_KEYS.lang );
+    }
+
+    setLanguage(lang: string) {
+        if( lang == null ) {
+            localStorage.removeItem( STORAGE_KEYS.lang );
+        } else {
+            localStorage.setItem( STORAGE_KEYS.lang, lang);
+        }
+    }
+
+    getCurrency() : string {
+        return localStorage.getItem( STORAGE_KEYS.currency );
+    }
+
+    setCurrency(currency: string) {
+        if( currency == null ) {
+            localStorage.removeItem( STORAGE_KEYS.currency );
+        } else {
+            localStorage.setItem( STORAGE_KEYS.currency, currency);
+        }
+    }
+
 }

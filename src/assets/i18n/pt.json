@@ -1,6 +1,8 @@
 {    
     "--------------- app.html ---------------": "",
     "MENU": "Menu",
+    "LANGUAGE": "Idioma",
+    "CURRENCY": "Moeda",
     
     "--------------- app.component.ts ---------------": "",
     "PROFILE": "Perfil",
@@ -54,6 +56,7 @@
     "PLACEORDER_TITLE_REVIEW": "Revise seu Pedido",
     "PLACEORDER_TITLE_CONFIRMED": "Pedido Confirmado!",
     "ORDER_ITEMS": "Itens do pedido",
+    "QUANTITY": "Quantidade",
     "CUSTOMER": "Cliente",
     "PAYMENT":  "Pagamento",
     "PLACE_ORDER": "Confirmar Compra",

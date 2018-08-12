@@ -18,6 +18,47 @@
         </ion-row>
       </button>
     </ion-list>
+
+    <ion-list radio-group>
+        <ion-list-header>
+          {{ 'LANGUAGE' | translate }}
+        </ion-list-header>
+        
+        <ion-row>
+          <ion-col item-width="1">
+            <button ion-button menuClose block (click)="changeLanguage('en')" outline="{{!isLanguageSelected('en')}}">
+              English
+            </button>
+          </ion-col>
+
+          <ion-col item-width="1">
+            <button ion-button menuClose block (click)="changeLanguage('pt')" outline="{{!isLanguageSelected('pt')}}">
+              Português
+            </button>
+          </ion-col>
+        </ion-row>
+    </ion-list>
+
+    <ion-list radio-group>
+        <ion-list-header>
+          {{ 'CURRENCY' | translate }}
+        </ion-list-header>
+
+        <ion-row>
+          <ion-col item-width="1">
+            <button ion-button menuClose block (click)="changeCurrency('USD')" outline="{{!isCurrencySelected('USD')}}">
+              $ (USD)
+            </button>
+          </ion-col>
+
+          <ion-col item-width="1">
+            <button ion-button menuClose block (click)="changeCurrency('BRL')" outline="{{!isCurrencySelected('BRL')}}">
+              R$ (BRL)
+            </button>
+          </ion-col>
+        </ion-row>
+
+      </ion-list>
   </ion-content>
 
 </ion-menu>

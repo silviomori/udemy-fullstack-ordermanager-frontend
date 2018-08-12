@@ -7,6 +7,7 @@ import { CustomerDTO } from '../../models/customer.dto';
 import { AddressDTO } from '../../models/address.dto';
 import { CustomerService } from '../../services/domain/customer.service';
 import { OrderService } from '../../services/domain/order.service';
+import { StorageService } from '../../services/storage.service';
 
 @IonicPage()
 
@@ -24,14 +25,19 @@ export class PlaceOrderPage {
 
   transactionId: string;
 
+  currency: string;
+  
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public cartService: CartService,
     public customerService: CustomerService,
-    public orderService: OrderService) {
+    public orderService: OrderService,
+    public storage: StorageService) {
 
-    this.insertOrderDTO = this.navParams.get('order');
+      this.currency = this.storage.getCurrency();
+
+      this.insertOrderDTO = this.navParams.get('order');
   }
 
   ionViewDidLoad() {

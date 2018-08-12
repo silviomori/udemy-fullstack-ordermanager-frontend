@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CartItem } from '../../models/cart.item';
 import { CartService } from '../../services/domain/cart.service';
 import { ProductDTO } from '../../models/product.dto';
+import { StorageService } from '../../services/storage.service';
 
 @IonicPage()
 
@@ -14,11 +15,16 @@ import { ProductDTO } from '../../models/product.dto';
 export class CartPage {
 
   items: CartItem[]
+  currency: string;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public cartService: CartService) {
+    public cartService: CartService,
+    public storage: StorageService) {
+
+      this.currency = this.storage.getCurrency();
+
   }
 
   ionViewDidLoad() {

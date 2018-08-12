@@ -1,6 +1,8 @@
 {    
     "--------------- app.html ---------------": "",
     "MENU": "Menu",
+    "LANGUAGE": "Language",
+    "CURRENCY": "Currency",
     
     "--------------- app.component.ts ---------------": "",
     "PROFILE": "Profile",
@@ -22,7 +24,7 @@
     "PRODUCTS_TITLE": "Products",
     
     "--------------- products.ts ---------------": "",
-    "PLEASE_WAIT": "Please waaaaait...",
+    "PLEASE_WAIT": "Please wait...",
     
     "--------------- product-detail.html ---------------": "",
     "PRODUCT_DETAILS": "Product Details",
@@ -54,6 +56,7 @@
     "PLACEORDER_TITLE_REVIEW": "Review Your Order",
     "PLACEORDER_TITLE_CONFIRMED": "Order confirmed!",
     "ORDER_ITEMS": "Order Items",
+    "QUANTITY": "Quantity",
     "CUSTOMER": "Customer",
     "PAYMENT":  "Payment",
     "PLACE_ORDER": "Place Order",

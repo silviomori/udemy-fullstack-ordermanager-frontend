@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler, NgModule, LOCALE_ID } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
@@ -19,6 +19,9 @@ import { ImageUtilService } from '../services/image-util.service';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+import { TranslateService } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -52,11 +55,22 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     CustomerService,
     ProductService,
     CartService,
-    ImageUtilService
+    ImageUtilService,
+    {
+      provide: LOCALE_ID,
+      useFactory: (translate: TranslateService) => {
+        return translate.currentLang;
+      },
+      deps: [TranslateService]
+    }
   ]
 })
 
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    registerLocaleData(localePt);
+  }
+}
 
 export function createTranslateLoader(httpClient: HttpClient) {
   return new TranslateHttpLoader( httpClient, './assets/i18n/', '.json' );

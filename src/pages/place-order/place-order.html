@@ -22,14 +22,14 @@
             <img [src]="item.product.thumbnailUrl || 'assets/imgs/prod.jpg'">
           </ion-thumbnail>
           <h1>{{item.product.name}}</h1>
-          <h2>{{item.product.price | currency}}</h2>
-          <h2 class="nolinebreak">{{item.quantity}}</h2>
-          <h2 item-end>{{item.product.price * item.quantity | currency}}</h2>
+          <h2>{{item.product.price | currency:currency}}</h2>
+          <h2 class="nolinebreak">{{ 'QUANTITY' | translate}}: {{item.quantity}}</h2>
+          <h2 item-end>{{item.product.price * item.quantity | currency:currency}}</h2>
         </ion-item> 
 
         <ion-item>
           <h1>{{ 'TOTAL' | translate }}</h1>
-          <h1 item-end>{{total() | currency}}</h1>
+          <h1 item-end>{{total() | currency:currency}}</h1>
         </ion-item>
       </ion-list> 
     </ion-card>

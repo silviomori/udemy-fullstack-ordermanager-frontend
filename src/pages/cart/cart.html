@@ -17,7 +17,7 @@
 
       <h1>{{item.product.name}}</h1>
 
-      <h2>{{item.product.price | currency}}</h2>
+      <h2>{{item.product.price | currency:currency}}</h2>
 
       <h2>
         <ion-icon name="remove-circle" class="nolinebreak" color="primary" (click)=decreaseQuantity(item.product)></ion-icon>
@@ -31,7 +31,7 @@
     
     <ion-item *ngIf="total() > 0">
         <h1>{{ 'TOTAL' | translate }}</h1>
-        <h1 item-end>{{ total() | currency }}</h1>
+        <h1 item-end>{{ total() | currency:currency }}</h1>
     </ion-item>
     <ion-item *ngIf="total() <= 0">
         <h1>{{ 'CART_EMPTY' | translate }}</h1>

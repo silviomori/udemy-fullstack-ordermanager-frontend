@@ -28,15 +28,15 @@
                 <ion-icon name="card"></ion-icon>
             </ion-col>
             <ion-col>
-                {{ product?.price | currency }}
-            </ion-col>
+                {{ product?.price | currency:currency }}
+              </ion-col>
         </ion-row>
         <ion-row>
             <ion-col>
                 <ion-icon large name="cash"></ion-icon>
             </ion-col>
             <ion-col>
-                {{ product?.price * 0.95 | currency }}
+                {{ product?.price * 0.95 | currency:currency }}
             </ion-col>
         </ion-row>
       </h1>

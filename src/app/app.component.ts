@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthService } from '../services/auth.service';
 import { TranslateService } from '@ngx-translate/core';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'MyApp',
@@ -22,9 +23,8 @@ export class MyApp {
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     public authService: AuthService,
-    public translate: TranslateService) {
-
-    translate.setDefaultLang('pt');
+    public translate: TranslateService,
+    public storage: StorageService) {
 
     this.initializeApp();
 
@@ -62,6 +62,20 @@ export class MyApp {
   }
 
   initializeApp() {
+    if( this.storage.getLanguage() == null ) {
+      let sysLang = window.navigator.language;
+      if( sysLang.startsWith("pt") ) {
+        this.storage.setLanguage("pt");
+        this.storage.setCurrency("BRL");
+      } else {
+          this.storage.setLanguage("en");
+          this.storage.setCurrency("USD");
+      }
+    }
+    
+    this.translate.setDefaultLang(this.storage.getLanguage());
+    this.translate.use(this.storage.getLanguage());
+
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -74,12 +88,35 @@ export class MyApp {
     switch(page.component) {
       case '':
         this.authService.logout();
-        this.nav.setRoot('HomePage');
+        this.nav.setRoot(this.rootPage);
         break;
       default:
         this.nav.setRoot(page.component);
         break;
     }
+  }
+
+  changeLanguage(lang: string) {
+    this.storage.setLanguage(lang);
+    this.translate.use(lang);
+
+    window.location.reload();
+    this.nav.setRoot(this.rootPage);
+  }
+
+  isLanguageSelected(lang: string) : boolean {
+    return (this.translate.currentLang == lang);
+  }
+
+  changeCurrency(currency: string) {
+    this.storage.setCurrency(currency);
+    
+    window.location.reload();
+    this.nav.setRoot(this.rootPage);
+  }
+
+  isCurrencySelected(currency: string) : boolean {
+    return (this.storage.getCurrency() == currency);
   }
 
 }

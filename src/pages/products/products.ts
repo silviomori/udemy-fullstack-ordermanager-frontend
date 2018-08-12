@@ -4,6 +4,7 @@ import { ProductDTO } from '../../models/product.dto';
 import { ProductService } from '../../services/domain/product.service';
 import { API_CONFIG } from '../../config/api.config';
 import { TranslateService } from '@ngx-translate/core';
+import { StorageService } from '../../services/storage.service';
 
 @IonicPage()
 
@@ -16,6 +17,8 @@ export class ProductsPage {
 
   categoryName: string;
 
+  currency: string;
+
   items : ProductDTO[] = [];
 
   page : number = 0;
@@ -25,9 +28,10 @@ export class ProductsPage {
     public navParams: NavParams,
     public productService: ProductService,
     public loadingCtrl: LoadingController,
-    public translate: TranslateService) {
+    public translate: TranslateService,
+    public storage: StorageService) {
 
-      translate.setDefaultLang('pt');
+      this.currency = this.storage.getCurrency()
 
   }
 
